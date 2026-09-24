@@ -1,0 +1,100 @@
+"HEADER_SUBTITLE" = "ホーム画面を置き換えるリキッドガラスアプリランチャー";
+"ENABLE" = "ListAppを有効化";
+"ENABLE_FOOTER" = "iOSホーム画面を縦スクロールのアプリリストに完全に置き換えます。各アプリは画面幅の2/3を占めるリキッドガラスの長方形カプセルに収められ、中央に配置されます。";
+
+"SETTINGS" = "設定";
+"APPEARANCE" = "外観・ガラス";
+"LAYOUT" = "レイアウト";
+"SAFETY" = "安全性とパフォーマンス";
+"SUPPORT" = "サポートと寄付";
+"ABOUT" = "ListAppについて";
+"CREDITS" = "クレジット";
+"DONATE" = "寄付";
+
+"RESPRING" = "リスプリング";
+"RESPRING_MSG" = "変更を適用するためにSpringBoardを再起動します。";
+"RESET" = "初期値に戻す";
+"RESET_MSG" = "すべての設定をデフォルトに戻しますか？";
+"CANCEL" = "キャンセル";
+"OK" = "OK";
+
+"VERSION_FOOTER" = "ListApp 1.0.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+
+"FRAME_DESIGN" = "フレームデザイン";
+"FRAME_DESIGN_FOOTER" = "アプリカプセルの幾何学的な形状を選択します。";
+"FRAME_CAPSULE" = "カプセル (ピル型)";
+"FRAME_ROUNDED" = "角丸長方形 (12pt)";
+"FRAME_SQUIRCLE" = "iOSスクワークル (18pt)";
+"FRAME_BORDERED" = "境界線ガラス (ダブルグロー)";
+"FRAME_MINIMAL" = "ミニマル (枠線なし)";
+
+"GLASS_COLOR" = "リキッドガラスのカラー";
+"GLASS_COLOR_FOOTER" = "ホーム画面のピルカプセルのお好みの配色を選択します。";
+"COLOR_CRYSTAL" = "クリスタルクリア (自動)";
+"COLOR_OBSIDIAN" = "オブシディアンダーク";
+"COLOR_SAPPHIRE" = "サファイアブルー";
+"COLOR_EMERALD" = "エメラルドグリーン";
+"COLOR_AMETHYST" = "アメジストパープル";
+"COLOR_SUNSET" = "サンセットルビー";
+"COLOR_FROSTED_WHITE" = "フロストホワイト";
+
+"MATERIAL_STYLE" = "ブラーマテリアル";
+"MATERIAL_FOOTER" = "すりガラススタイルを選択します。";
+"STYLE_AUTO" = "自動";
+"STYLE_THIN" = "薄い";
+"STYLE_ULTRATHIN" = "極薄";
+"STYLE_DARK" = "ダーク";
+"STYLE_LIGHT" = "ライト";
+
+"GLASS_INTENSITY" = "ガラスの透明度";
+"INTENSITY_FOOTER" = "左で透明度が高くなり、右ですりガラス効果が濃くなります。";
+"CORNER_RADIUS" = "角丸の半径";
+"EFFECTS" = "ライティングエフェクト";
+"SPECULAR" = "光沢反射ハイライト";
+"BORDER_GLOW" = "ガラスエッジライティング";
+
+"CRASH_PROTECTION" = "クラッシュ保護 (Circuit Breaker)";
+"REDUCE_TRANSPARENCY" = "透明度を下げるを尊重";
+"CHEAP_LPM" = "低電力モードで軽量ブラー";
+"SAFETY_FOOTER" = "異常が発生した場合に機能を自動的に分離し、セーフモードを防ぎます。";
+
+"COMPONENTS" = "ホーム画面置き換え";
+"COMPONENTS_FOOTER" = "各アプリを2/3幅のガラスカプセルで表示します。";
+"SHOW_SEARCH" = "上部に検索バーを表示";
+"HIDE_STOCK_ICONS" = "既存のアイコンを完全に非表示";
+"HIDE_DOCK" = "ドックを非表示";
+"HIDE_PAGE_DOTS" = "ページドットを非表示";
+"HAPTICS" = "タップ時の触覚フィードバック";
+
+"AUTHOR" = "作者";
+"CREDITS_AUTHOR" = "Jin Ken Nguyen — コンセプト、設計、リキッドガラス、フック、環境設定。";
+"GITHUB" = "GitHub";
+"TWITTER" = "X / Twitter";
+"TOOLCHAIN" = "ツールチェーン";
+"CREDITS_TOOL" = "Theos & Logosで構築。";
+"THEOS" = "Theos";
+"LIBROOT" = "opa334 / libroot";
+"ELLEKIT" = "ElleKit";
+"LICENSE" = "ライセンス";
+"CREDITS_LICENSE" = "MIT License。";
+"THANKS" = "スペシャルサンクス";
+"CREDITS_THANKS" = "脱獄コミュニティ、Dopamine、Palera1nの皆様。";
+
+"DONATE_TITLE" = "開発を支援";
+"DONATE_FOOTER" = "ListAppは無料のオープンソースです。";
+"KOFI" = "Ko-fi";
+"PAYPAL" = "PayPal";
+"SPONSORS" = "GitHub Sponsors";
+"DONATE_VIETNAM_TITLE" = "ベトナムでの支援 (MoMo / Banking)";
+"DONATE_VIETNAM_FOOTER" = "MoMo / ZaloPay / VietQR: 0987654321 (Jin Ken Nguyen)";
+"DONATE_THANKS" = "ご支援いただき誠にありがとうございます！";
+
+"WHAT_IS" = "ListAppとは？";
+"ABOUT_WHAT" = "ListAppはホーム画面をスタイリッシュな設定風の縦スクロールリストに完全に置き換えます。";
+"HOW_IT_WORKS" = "仕組み";
+"ABOUT_HOW" = "SpringBoardに直接統合され、安全にアプリを起動します。";
+"FEATURE_LIST" = "主な機能";
+"ABOUT_FEATURES" = "• ロック解除時にホーム画面を完全置き換え\n• 画面幅の2/3を占める細長いリキッドガラス枠\n• リアルタイム検索バー\n• 触覚フィードバック\n• 3つのパッケージ（Rootful, Rootless, RootHide）対応";
+"COMPAT" = "互換性";
+"ABOUT_COMPAT" = "iOS 15.0 - iOS 27.x 対応。";
+"ABOUT_SAFETY" = "安全設計でデバイスを保護します。";

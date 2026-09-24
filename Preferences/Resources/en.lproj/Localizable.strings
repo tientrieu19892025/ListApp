@@ -1,0 +1,100 @@
+"HEADER_SUBTITLE" = "Liquid Glass App Launcher replacing iOS Home Screen";
+"ENABLE" = "Enable ListApp";
+"ENABLE_FOOTER" = "Completely replaces your iOS Home Screen with a sleek, vertical list of applications. Each app is encased in an elongated liquid glass capsule occupying 2/3 of the screen width, centered on your screen.";
+
+"SETTINGS" = "Settings";
+"APPEARANCE" = "Appearance & Glass";
+"LAYOUT" = "Layout & Controls";
+"SAFETY" = "Safety & Performance";
+"SUPPORT" = "Support & Donate";
+"ABOUT" = "About ListApp";
+"CREDITS" = "Credits";
+"DONATE" = "Donate";
+
+"RESPRING" = "Respring";
+"RESPRING_MSG" = "Reload SpringBoard to apply all visual and system changes immediately.";
+"RESET" = "Reset to Defaults";
+"RESET_MSG" = "Are you sure you want to restore all settings to default values?";
+"CANCEL" = "Cancel";
+"OK" = "OK";
+
+"VERSION_FOOTER" = "ListApp 1.0.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+
+"FRAME_DESIGN" = "Pill Frame Design";
+"FRAME_DESIGN_FOOTER" = "Select the geometric design for the liquid glass app capsules.";
+"FRAME_CAPSULE" = "Capsule (Full Pill)";
+"FRAME_ROUNDED" = "Rounded Rectangle (12pt)";
+"FRAME_SQUIRCLE" = "iOS Squircle (18pt)";
+"FRAME_BORDERED" = "Bordered Glass (Double Glow)";
+"FRAME_MINIMAL" = "Minimalist (Borderless)";
+
+"GLASS_COLOR" = "Liquid Glass Color";
+"GLASS_COLOR_FOOTER" = "Choose a tinted liquid glass color scheme for your Home Screen pills.";
+"COLOR_CRYSTAL" = "Crystal Clear (Adaptive)";
+"COLOR_OBSIDIAN" = "Obsidian Dark";
+"COLOR_SAPPHIRE" = "Sapphire Blue";
+"COLOR_EMERALD" = "Emerald Green";
+"COLOR_AMETHYST" = "Amethyst Purple";
+"COLOR_SUNSET" = "Sunset Ruby";
+"COLOR_FROSTED_WHITE" = "Frosted Snow White";
+
+"MATERIAL_STYLE" = "Glass Blur Material";
+"MATERIAL_FOOTER" = "Select the frosted material style. Auto adjusts seamlessly between Light and Dark mode.";
+"STYLE_AUTO" = "Auto";
+"STYLE_THIN" = "Thin";
+"STYLE_ULTRATHIN" = "Ultra Thin";
+"STYLE_DARK" = "Dark";
+"STYLE_LIGHT" = "Light";
+
+"GLASS_INTENSITY" = "Glass Translucency & Intensity";
+"INTENSITY_FOOTER" = "Slide left for ultra-translucent clear glass, slide right for rich frosted crystal.";
+"CORNER_RADIUS" = "Pill Corner Radius";
+"EFFECTS" = "Visual Lighting Effects";
+"SPECULAR" = "Specular Glare Reflection";
+"BORDER_GLOW" = "Glass Rim Lighting";
+
+"CRASH_PROTECTION" = "Crash Protection & Circuit Breaker";
+"REDUCE_TRANSPARENCY" = "Respect Reduce Transparency";
+"CHEAP_LPM" = "Power Saver Blur in Low Power Mode";
+"SAFETY_FOOTER" = "Automatic circuit breaker isolates any rare exception and prevents SpringBoard loops or safe mode. Low Power Mode switches to lightweight rendering.";
+
+"COMPONENTS" = "Home Screen Replacement";
+"COMPONENTS_FOOTER" = "ListApp displays each application in an elongated 2/3 width floating pill card. Search bar lets you filter applications instantly.";
+"SHOW_SEARCH" = "Search Bar at Top";
+"HIDE_STOCK_ICONS" = "Completely Hide Stock Home Grid";
+"HIDE_DOCK" = "Hide Dock";
+"HIDE_PAGE_DOTS" = "Hide Page Dots";
+"HAPTICS" = "Haptic Touch Feedback";
+
+"AUTHOR" = "Author & Developer";
+"CREDITS_AUTHOR" = "Jin Ken Nguyen — concept, design, liquid glass engine, SpringBoard hooks, preferences, and packaging.";
+"GITHUB" = "GitHub";
+"TWITTER" = "X / Twitter";
+"TOOLCHAIN" = "Toolchain & Libraries";
+"CREDITS_TOOL" = "Built with Theos & Logos. Rootless path resolution via opa334 libroot. Hook injection via ElleKit / MobileSubstrate.";
+"THEOS" = "Theos";
+"LIBROOT" = "opa334 / libroot";
+"ELLEKIT" = "ElleKit";
+"LICENSE" = "License";
+"CREDITS_LICENSE" = "Released under the MIT License. Free and open source.";
+"THANKS" = "Special Thanks";
+"CREDITS_THANKS" = "The iOS Jailbreak community, Dopamine, Palera1n, Procursus, and everyone supporting rootless & RootHide tweaks.";
+
+"DONATE_TITLE" = "Support ListApp Development";
+"DONATE_FOOTER" = "ListApp is completely free and open-source. Donations support test devices and maintenance across Rootful, Rootless, and RootHide.";
+"KOFI" = "Ko-fi";
+"PAYPAL" = "PayPal";
+"SPONSORS" = "GitHub Sponsors";
+"DONATE_VIETNAM_TITLE" = "Vietnam Supporters (MoMo / Banking)";
+"DONATE_VIETNAM_FOOTER" = "Quét mã MoMo hoặc chuyển khoản ủng hộ tác giả:\n• MoMo / ZaloPay / VietQR: 0987654321 (Jin Ken Nguyen)\n• Cảm ơn các bạn lập trình viên & người dùng jailbreak Việt Nam!";
+"DONATE_THANKS" = "Thank you for your generous support! Every donation keeps the project alive.";
+
+"WHAT_IS" = "What is ListApp?";
+"ABOUT_WHAT" = "ListApp transforms your iOS device by completely replacing the standard Home Screen with an elegant Settings-like vertical list. Each app is presented in an individual elongated liquid glass pill taking up 2/3 of the screen width, centered on screen.";
+"HOW_IT_WORKS" = "How It Works";
+"ABOUT_HOW" = "ListApp injects directly into SpringBoard's root folder hierarchy, fetching installed applications dynamically without querying private network endpoints. App launches use system-level application workspaces with multiple failover tiers for 100% stability.";
+"FEATURE_LIST" = "Key Features";
+"ABOUT_FEATURES" = "• Replaces stock Home Screen upon unlock\n• Each app enclosed in a 2/3 screen width elongated liquid glass pill\n• Centered horizontally on the screen, scrolling vertically from top to bottom\n• iOS 26+ style specular refraction reflection and continuous squircles\n• Ultra-fast live search bar with instantaneous filtering\n• Tactile haptic feedback on app touches\n• Options to hide classic stock icons, dock, and page dots\n• Automatic circuit breaker crash protection\n• 3 package architectures: Rootful, Rootless, and RootHide";
+"COMPAT" = "Compatibility";
+"ABOUT_COMPAT" = "iOS 15.0 through iOS 27.x.\nSupported architectures:\n• iphoneos-arm (Rootful)\n• iphoneos-arm64 (Rootless - Dopamine, Palera1n)\n• iphoneos-arm64e (RootHide)\nCompatible with ElleKit, Substitute, and MobileSubstrate.";
+"ABOUT_SAFETY" = "ListApp respects system sandbox policies, never modifies system system binaries, and includes defensive exception isolation.";

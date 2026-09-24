@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>AUTHOR</string>
+			<key>footerText</key>
+			<string>CREDITS_AUTHOR</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openGitHub</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>GITHUB</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openX</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>TWITTER</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>TOOLCHAIN</string>
+			<key>footerText</key>
+			<string>CREDITS_TOOL</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openTheos</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>THEOS</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openLibroot</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>LIBROOT</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openElleKit</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>ELLEKIT</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>LICENSE</string>
+			<key>footerText</key>
+			<string>CREDITS_LICENSE</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>THANKS</string>
+			<key>footerText</key>
+			<string>CREDITS_THANKS</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>CREDITS</string>
+</dict>
+</plist>

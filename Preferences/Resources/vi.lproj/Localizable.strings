@@ -1,0 +1,100 @@
+"HEADER_SUBTITLE" = "Khung kính lỏng thay thế hoàn toàn màn hình chính iOS";
+"ENABLE" = "Bật ListApp";
+"ENABLE_FOOTER" = "Thay thế hoàn toàn màn hình chính bằng danh sách ứng dụng cuộn dọc. Mỗi app được đặt trong một khung kính lỏng dài chiếm đúng 2/3 chiều ngang màn hình, canh giữa màn hình từ trên xuống.";
+
+"SETTINGS" = "Cài đặt";
+"APPEARANCE" = "Giao diện kính";
+"LAYOUT" = "Bố cục & Điều khiển";
+"SAFETY" = "An toàn & Hiệu năng";
+"SUPPORT" = "Hỗ trợ & Ủng hộ";
+"ABOUT" = "Giới thiệu ListApp";
+"CREDITS" = "Credits tác giả";
+"DONATE" = "Ủng hộ (Donate)";
+
+"RESPRING" = "Respring";
+"RESPRING_MSG" = "Tải lại SpringBoard để áp dụng các thay đổi giao diện và hệ thống ngay lập tức.";
+"RESET" = "Khôi phục mặc định";
+"RESET_MSG" = "Bạn có chắc chắn muốn đặt lại tất cả cài đặt về giá trị ban đầu không?";
+"CANCEL" = "Hủy";
+"OK" = "OK";
+
+"VERSION_FOOTER" = "ListApp 1.0.0 · Phiên bản Crystal · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+
+"FRAME_DESIGN" = "Thiết kế khung app";
+"FRAME_DESIGN_FOOTER" = "Chọn phong cách hình học bo góc cho các thanh kính lỏng chứa ứng dụng.";
+"FRAME_CAPSULE" = "Viên thuốc mượt (Full Capsule)";
+"FRAME_ROUNDED" = "Hình chữ nhật bo tròn (12pt)";
+"FRAME_SQUIRCLE" = "Squircle chuẩn iOS (18pt)";
+"FRAME_BORDERED" = "Kính viền đôi nổi bật (Double Glow)";
+"FRAME_MINIMAL" = "Tối giản không viền (Minimal)";
+
+"GLASS_COLOR" = "Màu sắc kính lỏng";
+"GLASS_COLOR_FOOTER" = "Chọn tông màu kính lỏng yêu thích cho danh sách ứng dụng trên màn hình chính.";
+"COLOR_CRYSTAL" = "Pha lê trong suốt (Tự nhiên)";
+"COLOR_OBSIDIAN" = "Đen tuyền bóng đêm (Obsidian)";
+"COLOR_SAPPHIRE" = "Xanh dương Sapphire";
+"COLOR_EMERALD" = "Xanh ngọc lục bảo (Emerald)";
+"COLOR_AMETHYST" = "Tím thạch anh (Amethyst)";
+"COLOR_SUNSET" = "Đỏ ruby hoàng hôn (Sunset)";
+"COLOR_FROSTED_WHITE" = "Trắng tuyết sương mù (Frosted)";
+
+"MATERIAL_STYLE" = "Chất liệu làm mờ kính";
+"MATERIAL_FOOTER" = "Chọn phong cách làm mờ kính. Chế độ Tự động sẽ tự điều chỉnh mượt mà theo Sáng / Tối.";
+"STYLE_AUTO" = "Tự động";
+"STYLE_THIN" = "Kính mỏng";
+"STYLE_ULTRATHIN" = "Siêu mỏng";
+"STYLE_DARK" = "Kính tối";
+"STYLE_LIGHT" = "Kính sáng";
+
+"GLASS_INTENSITY" = "Độ mờ & Màu sắc kính";
+"INTENSITY_FOOTER" = "Kéo sang trái để kính trong suốt hơn, kéo sang phải để làm mờ dày và đậm màu hơn.";
+"CORNER_RADIUS" = "Độ bo góc thanh kính app";
+"EFFECTS" = "Hiệu ứng ánh sáng & Phản chiếu";
+"SPECULAR" = "Vệt sáng phản chiếu chéo";
+"BORDER_GLOW" = "Viền sáng tán xạ mặt kính";
+
+"CRASH_PROTECTION" = "Bảo vệ treo máy & Cầu dao tự ngắt";
+"REDUCE_TRANSPARENCY" = "Tôn trọng Giảm độ trong suốt";
+"CHEAP_LPM" = "Tiết kiệm pin khi bật Chế độ nguồn điện thấp";
+"SAFETY_FOOTER" = "Cơ chế cầu dao tự động cách ly lỗi nếu phát sinh, không gây treo máy, văng SpringBoard hay Safe Mode. Khi bật Tiết kiệm pin, hiệu ứng kính sẽ chuyển sang chế độ siêu nhẹ.";
+
+"COMPONENTS" = "Thay thế Màn hình chính";
+"COMPONENTS_FOOTER" = "ListApp hiển thị từng ứng dụng trong một khung kính dài nổi 2/3 màn hình. Thanh tìm kiếm cho phép lọc ứng dụng tức thì.";
+"SHOW_SEARCH" = "Hiện thanh tìm kiếm trên đỉnh";
+"HIDE_STOCK_ICONS" = "Ẩn hoàn toàn lưới app mặc định";
+"HIDE_DOCK" = "Ẩn thanh Dock";
+"HIDE_PAGE_DOTS" = "Ẩn dấu trang (Page Dots)";
+"HAPTICS" = "Rung phản hồi xúc giác khi chạm app";
+
+"AUTHOR" = "Tác giả & Phát triển";
+"CREDITS_AUTHOR" = "Jin Ken Nguyen — ý tưởng, thiết kế, engine kính lỏng, hook SpringBoard, trang cài đặt và đóng gói.";
+"GITHUB" = "GitHub";
+"TWITTER" = "X / Twitter";
+"TOOLCHAIN" = "Công cụ & Thư viện";
+"CREDITS_TOOL" = "Xây dựng bằng Theos & Logos. Xử lý đường dẫn rootless thông qua opa334 libroot. Tiêm hook qua ElleKit / MobileSubstrate.";
+"THEOS" = "Theos";
+"LIBROOT" = "opa334 / libroot";
+"ELLEKIT" = "ElleKit";
+"LICENSE" = "Giấy phép";
+"CREDITS_LICENSE" = "Phát hành theo giấy phép MIT. Hoàn toàn miễn phí và mã nguồn mở.";
+"THANKS" = "Lời cảm ơn";
+"CREDITS_THANKS" = "Cộng đồng Jailbreak iOS, đội ngũ Dopamine, Palera1n, Procursus và tất cả các bạn ủng hộ tweak rootless & RootHide.";
+
+"DONATE_TITLE" = "Ủng hộ phát triển ListApp";
+"DONATE_FOOTER" = "ListApp hoàn toàn miễn phí. Đóng góp của bạn giúp duy trì thiết bị kiểm thử và bảo trì đầy đủ cả 3 bản Rootful, Rootless và RootHide.";
+"KOFI" = "Ko-fi";
+"PAYPAL" = "PayPal";
+"SPONSORS" = "GitHub Sponsors";
+"DONATE_VIETNAM_TITLE" = "Ủng hộ tại Việt Nam (MoMo / Ngân hàng)";
+"DONATE_VIETNAM_FOOTER" = "Quét mã MoMo hoặc chuyển khoản ủng hộ tác giả:\n• MoMo / ZaloPay / VietQR: 0987654321 (Jin Ken Nguyen)\n• Cảm ơn các anh em jailbreak Việt Nam đã luôn đồng hành!";
+"DONATE_THANKS" = "Xin chân thành cảm ơn sự ủng hộ của bạn! Mọi đóng góp đều là động lực lớn để cập nhật tweak.";
+
+"WHAT_IS" = "ListApp là gì?";
+"ABOUT_WHAT" = "ListApp thay thế hoàn toàn màn hình chính truyền thống của iOS. Khi mở khóa, màn hình sẽ hiển thị danh sách từng ứng dụng theo phong cách Cài đặt với từng khung kính lỏng dài tuyệt đẹp, mỗi khung chiếm đúng 2/3 chiều ngang màn hình và nằm ngay giữa màn hình từ trên xuống.";
+"HOW_IT_WORKS" = "Cơ chế hoạt động";
+"ABOUT_HOW" = "ListApp tích hợp trực tiếp vào phân cấp giao diện gốc của SpringBoard, quét ứng dụng trực tiếp từ hệ thống với tốc độ tức thì mà không cần mạng. Việc khởi chạy app được bảo vệ đa tầng chống treo/crash tuyệt đối.";
+"FEATURE_LIST" = "Tính năng nổi bật";
+"ABOUT_FEATURES" = "• Thay thế hoàn toàn màn hình chính khi mở khóa\n• Mỗi app được bọc trong một khung kính lỏng dài chiếm 2/3 màn hình\n• Canh giữa màn hình, cuộn dọc mượt mà từ trên xuống giống Cài đặt\n• Hiệu ứng phản quang vệt sáng chéo và bo góc squircle chuẩn iOS 26+\n• Thanh tìm kiếm ứng dụng trực tiếp mượt mà ngay trên đỉnh kính\n• Rung phản hồi haptic xúc giác cao cấp khi chạm mở app\n• Tự động ẩn icon truyền thống, thanh Dock và dấu chấm trang\n• Tự động ngắt sự cố chống respring loop / safe mode\n• Hỗ trợ đầy đủ 3 kiến trúc: Rootful, Rootless và RootHide";
+"COMPAT" = "Độ tương thích";
+"ABOUT_COMPAT" = "Tương thích iOS 15.0 đến iOS 27.x.\nHỗ trợ đầy đủ các bản jailbreak:\n• iphoneos-arm (Rootful)\n• iphoneos-arm64 (Rootless - Dopamine, Palera1n)\n• iphoneos-arm64e (RootHide)\nTương thích hoàn hảo với ElleKit, Substitute và MobileSubstrate.";
+"ABOUT_SAFETY" = "ListApp tuân thủ cơ chế sandbox hệ thống, không chỉnh sửa file nhị phân gốc và có lớp bảo vệ biệt lập.";

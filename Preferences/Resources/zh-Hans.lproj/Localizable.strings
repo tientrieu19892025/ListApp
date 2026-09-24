@@ -1,0 +1,100 @@
+"HEADER_SUBTITLE" = "完全取代主屏幕的液态玻璃应用启动器";
+"ENABLE" = "启用 ListApp";
+"ENABLE_FOOTER" = "完全替换iOS主屏幕为垂直应用列表。每个应用都包裹在占屏幕宽度2/3的液态玻璃胶囊卡片中，垂直居中排列。";
+
+"SETTINGS" = "设置";
+"APPEARANCE" = "外观与玻璃";
+"LAYOUT" = "布局与控制";
+"SAFETY" = "安全与性能";
+"SUPPORT" = "支持与赞助";
+"ABOUT" = "关于 ListApp";
+"CREDITS" = "致谢";
+"DONATE" = "捐赠赞助";
+
+"RESPRING" = "注销重启 (Respring)";
+"RESPRING_MSG" = "重新加载 SpringBoard 以立即应用更改。";
+"RESET" = "恢复默认设置";
+"RESET_MSG" = "确定要恢复所有默认设置吗？";
+"CANCEL" = "取消";
+"OK" = "确定";
+
+"VERSION_FOOTER" = "ListApp 1.0.0 · 水晶版 · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+
+"FRAME_DESIGN" = "卡片边框设计";
+"FRAME_DESIGN_FOOTER" = "选择液态玻璃应用胶囊的几何造型。";
+"FRAME_CAPSULE" = "圆润胶囊 (Full Pill)";
+"FRAME_ROUNDED" = "圆角矩形 (12pt)";
+"FRAME_SQUIRCLE" = "iOS平滑圆角 (18pt)";
+"FRAME_BORDERED" = "高亮边框玻璃 (Double Glow)";
+"FRAME_MINIMAL" = "极简无边框 (Minimal)";
+
+"GLASS_COLOR" = "液态玻璃色彩";
+"GLASS_COLOR_FOOTER" = "为你的主屏幕卡片选择心仪的半透明玻璃色调。";
+"COLOR_CRYSTAL" = "通透水晶 (自适应)";
+"COLOR_OBSIDIAN" = "暗夜黑曜石";
+"COLOR_SAPPHIRE" = "蓝宝石深海";
+"COLOR_EMERALD" = "翡翠绿宝石";
+"COLOR_AMETHYST" = "皇家紫水晶";
+"COLOR_SUNSET" = "红宝石夕阳";
+"COLOR_FROSTED_WHITE" = "霜雪透白";
+
+"MATERIAL_STYLE" = "磨砂玻璃材质";
+"MATERIAL_FOOTER" = "选择磨砂玻璃风格。自动模式会随深色/浅色模式平滑切换。";
+"STYLE_AUTO" = "自动";
+"STYLE_THIN" = "轻薄";
+"STYLE_ULTRATHIN" = "超薄";
+"STYLE_DARK" = "深色";
+"STYLE_LIGHT" = "浅色";
+
+"GLASS_INTENSITY" = "玻璃通透度与强度";
+"INTENSITY_FOOTER" = "向左更通透，向右磨砂质感更浓厚。";
+"CORNER_RADIUS" = "卡片圆角半径";
+"EFFECTS" = "视觉光效";
+"SPECULAR" = "高光反射光泽";
+"BORDER_GLOW" = "玻璃边缘折射光";
+
+"CRASH_PROTECTION" = "防崩溃断路保护";
+"REDUCE_TRANSPARENCY" = "遵循减少透明度";
+"CHEAP_LPM" = "低电量模式使用节能模糊";
+"SAFETY_FOOTER" = "自动断路器隔离任何异常，防止SpringBoard陷入注销死循环或安全模式。";
+
+"COMPONENTS" = "主屏幕替换";
+"COMPONENTS_FOOTER" = "ListApp 将每个应用显示在占屏幕2/3宽度的玻璃药丸卡片中。";
+"SHOW_SEARCH" = "顶部搜索栏";
+"HIDE_STOCK_ICONS" = "完全隐藏原生图标网格";
+"HIDE_DOCK" = "隐藏程序坞 (Dock)";
+"HIDE_PAGE_DOTS" = "隐藏页面指示点";
+"HAPTICS" = "触觉震动反馈";
+
+"AUTHOR" = "作者与开发者";
+"CREDITS_AUTHOR" = "Jin Ken Nguyen — 构思、设计、液态玻璃引擎、SpringBoard 挂钩与打包。";
+"GITHUB" = "GitHub";
+"TWITTER" = "X / Twitter";
+"TOOLCHAIN" = "工具链";
+"CREDITS_TOOL" = "使用 Theos & Logos 构建。通过 opa334 libroot 支持 rootless。";
+"THEOS" = "Theos";
+"LIBROOT" = "opa334 / libroot";
+"ELLEKIT" = "ElleKit";
+"LICENSE" = "开源协议";
+"CREDITS_LICENSE" = "基于 MIT 协议发布。完全免费且开源。";
+"THANKS" = "特别鸣谢";
+"CREDITS_THANKS" = "iOS 越狱社区、Dopamine、Palera1n 团队及所有越狱支持者。";
+
+"DONATE_TITLE" = "支持 ListApp 开发";
+"DONATE_FOOTER" = "ListApp 完全免费开源。您的赞助有助于维护测试设备及更新。";
+"KOFI" = "Ko-fi";
+"PAYPAL" = "PayPal";
+"SPONSORS" = "GitHub Sponsors";
+"DONATE_VIETNAM_TITLE" = "越南赞助通道 (MoMo / 银行转账)";
+"DONATE_VIETNAM_FOOTER" = "MoMo / ZaloPay / VietQR: 0987654321 (Jin Ken Nguyen)";
+"DONATE_THANKS" = "非常感谢您的慷慨支持！";
+
+"WHAT_IS" = "什么是 ListApp？";
+"ABOUT_WHAT" = "ListApp 完全取代传统的主屏幕。解锁后直接以垂直设置风格列表呈现应用，每个应用都包裹在精致的 2/3 宽度液态玻璃卡片中。";
+"HOW_IT_WORKS" = "工作原理";
+"ABOUT_HOW" = "ListApp 直接注入 SpringBoard 根层级，从系统直接获取应用，稳定高效且具备多层防崩溃保护。";
+"FEATURE_LIST" = "核心特性";
+"ABOUT_FEATURES" = "• 解锁后完全取代传统主屏幕\n• 每个应用包裹在占屏幕 2/3 宽度的细长液态玻璃卡片中\n• 屏幕居中排列，从上到下流畅垂直滚动\n• 实时应用快速搜索栏\n• 触觉反馈\n• 完整支持 Rootful、Rootless、RootHide 3种架构";
+"COMPAT" = "兼容性";
+"ABOUT_COMPAT" = "支持 iOS 15.0 至 iOS 27.x。兼容 ElleKit 与 MobileSubstrate。";
+"ABOUT_SAFETY" = "严格遵守系统沙盒策略，包含防御性异常隔离。";
