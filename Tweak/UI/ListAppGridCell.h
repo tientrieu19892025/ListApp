@@ -6,5 +6,6 @@
 @property (nonatomic, copy) void (^onTapHandler)(void);
 
 - (void)configureWithItem:(ListAppItem *)item;
+- (CGRect)pillFrame;
 
 @end

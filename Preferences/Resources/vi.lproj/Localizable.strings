@@ -18,7 +18,7 @@
 "CANCEL" = "Hủy";
 "OK" = "OK";
 
-"VERSION_FOOTER" = "ListApp 1.0.0 · Phiên bản Crystal · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+"VERSION_FOOTER" = "ListApp 1.1.0 · Phiên bản Crystal · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
 
 "FRAME_DESIGN" = "Thiết kế khung app";
 "FRAME_DESIGN_FOOTER" = "Chọn phong cách hình học bo góc cho các thanh kính lỏng chứa ứng dụng.";
@@ -27,6 +27,10 @@
 "FRAME_SQUIRCLE" = "Squircle chuẩn iOS (18pt)";
 "FRAME_BORDERED" = "Kính viền đôi nổi bật (Double Glow)";
 "FRAME_MINIMAL" = "Tối giản không viền (Minimal)";
+"FRAME_NEON" = "Viền Neon phát sáng (Neon Glow)";
+"FRAME_CYBERPUNK" = "Góc vát Cyberpunk hiện đại (Chiseled Cyber)";
+"FRAME_FLOATING" = "Thẻ nổi 3D đổ bóng sâu (Deep Float)";
+"FRAME_DIAMOND" = "Vát kim cương sang trọng (Diamond Cut)";
 
 "GLASS_COLOR" = "Màu sắc kính lỏng";
 "GLASS_COLOR_FOOTER" = "Chọn tông màu kính lỏng yêu thích cho danh sách ứng dụng trên màn hình chính.";

@@ -2,6 +2,19 @@
 
 All notable changes to **ListApp** will be documented in this file.
 
+## [1.1.0] - 2026-09-26
+
+### Fixed
+- **Touch Bounds Hit-Testing**: Fixed an issue where tapping outside the 2/3 width floating glass card could trigger app opening. Only touches landing strictly within the glass pill frame are now accepted.
+
+### Added
+- **4 New Frame Designs**:
+  - **Neon Rim Glow**: Glowing neon perimeter with custom hue matching glass colors.
+  - **Chiseled Cyberpunk**: Futuristic chiseled corner geometry with dual cyan and magenta ambient lighting.
+  - **Deep Floating 3D**: High elevation card with rich 18pt drop shadows for realistic depth.
+  - **Luxury Diamond Cut**: Beveled jewel corner geometry with crisp diamond reflections.
+- **Multilingual Support**: Updated strings for Vietnamese, English, Japanese, and Simplified Chinese.
+
 ## [1.0.0] - 2026-09-24
 
 ### Added

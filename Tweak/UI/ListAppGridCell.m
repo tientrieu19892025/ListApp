@@ -112,10 +112,25 @@
     return self;
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    // Only accept touches that fall strictly within the 2/3 width pill container frame
+    if (self.userInteractionEnabled && !self.hidden && self.alpha > 0.01) {
+        if (CGRectContainsPoint(_pillContainerView.frame, point)) {
+            return [super hitTest:point withEvent:event];
+        }
+        // Outside the card/pill frame -> ignore touch completely
+        return nil;
+    }
+    return nil;
+}
+
 - (void)handleCellTap:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateEnded) {
-        if (self.onTapHandler) {
-            self.onTapHandler();
+        CGPoint loc = [gesture locationInView:self.contentView];
+        if (CGRectContainsPoint(_pillContainerView.frame, loc)) {
+            if (self.onTapHandler) {
+                self.onTapHandler();
+            }
         }
     }
 }
@@ -210,11 +225,55 @@
 
     NSInteger design = [ListAppPrefs frameDesign];
     CGFloat borderWidth = 1.0 / MAX([UIScreen mainScreen].scale, 2.0);
+
+    // Reset shadow defaults first
+    _pillContainerView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _pillContainerView.layer.shadowOpacity = 0.18;
+    _pillContainerView.layer.shadowRadius = 8.0;
+    _pillContainerView.layer.shadowOffset = CGSizeMake(0, 3);
+
     if (design == ListAppFrameDesignMinimal) {
         borderWidth = 0.0;
+        _pillContainerView.layer.shadowOpacity = 0.06;
     } else if (design == ListAppFrameDesignBordered) {
         borderWidth = 2.0;
         borderColor = [borderColor colorWithAlphaComponent:MIN(borderAlpha * 1.5, 0.90)];
+    } else if (design == ListAppFrameDesignNeonGlow) {
+        borderWidth = 1.5;
+        // Neon rim uses vibrant accent tint with glowing outer shadow matching glass color
+        UIColor *neonColor = borderColor;
+        if (colorMode == ListAppGlassColorCrystal) {
+            neonColor = [UIColor colorWithRed:0.20 green:0.75 blue:1.0 alpha:0.95];
+        } else if (colorMode == ListAppGlassColorObsidian) {
+            neonColor = [UIColor colorWithRed:0.75 green:0.85 blue:1.0 alpha:0.85];
+        }
+        borderColor = neonColor;
+        _pillContainerView.layer.shadowColor = neonColor.CGColor;
+        _pillContainerView.layer.shadowOpacity = 0.70;
+        _pillContainerView.layer.shadowRadius = 12.0;
+        _pillContainerView.layer.shadowOffset = CGSizeZero;
+    } else if (design == ListAppFrameDesignCyberpunk) {
+        borderWidth = 1.5;
+        UIColor *cyberColor = [UIColor colorWithRed:0.0 green:0.95 blue:0.90 alpha:0.85]; // Cyan neon edge
+        borderColor = cyberColor;
+        _pillContainerView.layer.shadowColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.55 alpha:0.65].CGColor; // Pink neon glow
+        _pillContainerView.layer.shadowOpacity = 0.55;
+        _pillContainerView.layer.shadowRadius = 9.0;
+        _pillContainerView.layer.shadowOffset = CGSizeMake(0, 2);
+    } else if (design == ListAppFrameDesignFloatingShadow) {
+        borderWidth = 0.5;
+        borderColor = [UIColor colorWithWhite:1.0 alpha:isDark ? 0.35 : 0.65];
+        _pillContainerView.layer.shadowColor = [UIColor blackColor].CGColor;
+        _pillContainerView.layer.shadowOpacity = isDark ? 0.55 : 0.28;
+        _pillContainerView.layer.shadowRadius = 18.0;
+        _pillContainerView.layer.shadowOffset = CGSizeMake(0, 8);
+    } else if (design == ListAppFrameDesignDiamondCut) {
+        borderWidth = 1.5;
+        borderColor = [UIColor colorWithWhite:1.0 alpha:0.75];
+        _pillContainerView.layer.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.4].CGColor;
+        _pillContainerView.layer.shadowOpacity = 0.35;
+        _pillContainerView.layer.shadowRadius = 10.0;
+        _pillContainerView.layer.shadowOffset = CGSizeMake(0, 2);
     }
 
     _hairlineBorder.borderColor = borderColor.CGColor;
@@ -227,6 +286,10 @@
     _iconImageView.image = [item iconImageWithScale:scale];
     [self applyStyle];
     [self setNeedsLayout];
+}
+
+- (CGRect)pillFrame {
+    return _pillContainerView.frame;
 }
 
 - (void)layoutSubviews {
@@ -265,6 +328,18 @@
             break;
         case ListAppFrameDesignMinimal:
             cornerRad = 14.0;
+            break;
+        case ListAppFrameDesignNeonGlow:
+            cornerRad = 20.0;
+            break;
+        case ListAppFrameDesignCyberpunk:
+            cornerRad = 6.0;
+            break;
+        case ListAppFrameDesignFloatingShadow:
+            cornerRad = 16.0;
+            break;
+        case ListAppFrameDesignDiamondCut:
+            cornerRad = 10.0;
             break;
         default:
             cornerRad = 18.0;

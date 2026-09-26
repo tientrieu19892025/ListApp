@@ -34,6 +34,10 @@
 				<string>FRAME_SQUIRCLE</string>
 				<string>FRAME_BORDERED</string>
 				<string>FRAME_MINIMAL</string>
+				<string>FRAME_NEON</string>
+				<string>FRAME_CYBERPUNK</string>
+				<string>FRAME_FLOATING</string>
+				<string>FRAME_DIAMOND</string>
 			</array>
 			<key>validValues</key>
 			<array>
@@ -42,6 +46,10 @@
 				<integer>2</integer>
 				<integer>3</integer>
 				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+				<integer>8</integer>
 			</array>
 		</dict>
 

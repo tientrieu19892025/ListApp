@@ -18,7 +18,7 @@
 "CANCEL" = "Cancel";
 "OK" = "OK";
 
-"VERSION_FOOTER" = "ListApp 1.0.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+"VERSION_FOOTER" = "ListApp 1.1.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
 
 "FRAME_DESIGN" = "Pill Frame Design";
 "FRAME_DESIGN_FOOTER" = "Select the geometric design for the liquid glass app capsules.";
@@ -27,6 +27,10 @@
 "FRAME_SQUIRCLE" = "iOS Squircle (18pt)";
 "FRAME_BORDERED" = "Bordered Glass (Double Glow)";
 "FRAME_MINIMAL" = "Minimalist (Borderless)";
+"FRAME_NEON" = "Neon Rim Glow";
+"FRAME_CYBERPUNK" = "Chiseled Cyberpunk";
+"FRAME_FLOATING" = "Deep Floating 3D Card";
+"FRAME_DIAMOND" = "Luxury Diamond Cut";
 
 "GLASS_COLOR" = "Liquid Glass Color";
 "GLASS_COLOR_FOOTER" = "Choose a tinted liquid glass color scheme for your Home Screen pills.";

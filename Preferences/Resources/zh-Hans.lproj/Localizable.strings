@@ -27,6 +27,10 @@
 "FRAME_SQUIRCLE" = "iOS平滑圆角 (18pt)";
 "FRAME_BORDERED" = "高亮边框玻璃 (Double Glow)";
 "FRAME_MINIMAL" = "极简无边框 (Minimal)";
+"FRAME_NEON" = "霓虹发光光晕 (Neon Glow)";
+"FRAME_CYBERPUNK" = "赛博朋克硬朗切角 (Cyberpunk)";
+"FRAME_FLOATING" = "深层悬浮3D阴影 (Deep Float)";
+"FRAME_DIAMOND" = "轻奢钻石切割 (Diamond Cut)";
 
 "GLASS_COLOR" = "液态玻璃色彩";
 "GLASS_COLOR_FOOTER" = "为你的主屏幕卡片选择心仪的半透明玻璃色调。";

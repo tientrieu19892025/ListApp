@@ -32,11 +32,15 @@ static NSString * const kListAppCheapBlurOnLPM = @"CheapBlurOnLPM";
 
 // Frame designs
 typedef NS_ENUM(NSInteger, ListAppFrameDesign) {
-    ListAppFrameDesignCapsule = 0,    // Bo tròn viên thuốc mượt mà
-    ListAppFrameDesignRounded = 1,    // Hình chữ nhật bo nhẹ 12pt
-    ListAppFrameDesignSquircle = 2,   // Squircle chuẩn iOS 16pt
-    ListAppFrameDesignBordered = 3,   // Khung viền kính kép nổi bật
-    ListAppFrameDesignMinimal = 4     // Tối giản không viền
+    ListAppFrameDesignCapsule = 0,        // Bo tròn viên thuốc mượt mà (Full Pill)
+    ListAppFrameDesignRounded = 1,        // Hình chữ nhật bo nhẹ 12pt (Rounded 12pt)
+    ListAppFrameDesignSquircle = 2,       // Squircle chuẩn iOS 18pt
+    ListAppFrameDesignBordered = 3,       // Khung viền kính kép nổi bật (Double Glow)
+    ListAppFrameDesignMinimal = 4,        // Tối giản trong suốt không viền (Minimal)
+    ListAppFrameDesignNeonGlow = 5,       // Viền đèn Neon phát sáng huyền ảo (Neon Glow)
+    ListAppFrameDesignCyberpunk = 6,      // Phong cách viền góc vát hiện đại (Chiseled/Cyber)
+    ListAppFrameDesignFloatingShadow = 7, // Thẻ nổi 3D đổ bóng sâu siêu thực (Deep Float)
+    ListAppFrameDesignDiamondCut = 8      // Bo góc kim cương sang trọng (Diamond Cut)
 };
 
 // Glass colors
@@ -63,7 +67,7 @@ static const CGFloat kListAppDefaultIntensity = 0.38;
 static const CGFloat kListAppDefaultIconSize = 42.0;
 static const NSInteger kListAppFailureDisableThreshold = 15;
 
-static NSString * const kListAppVersion = @"1.0.0";
+static NSString * const kListAppVersion = @"1.1.0";
 static NSString * const kListAppCodename = @"Crystal";
 
 #endif

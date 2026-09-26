@@ -27,6 +27,10 @@
 "FRAME_SQUIRCLE" = "iOSスクワークル (18pt)";
 "FRAME_BORDERED" = "境界線ガラス (ダブルグロー)";
 "FRAME_MINIMAL" = "ミニマル (枠線なし)";
+"FRAME_NEON" = "ネオングロー (発光リム)";
+"FRAME_CYBERPUNK" = "サイバーパンク (角斜めカット)";
+"FRAME_FLOATING" = "ディープフロート (立体3D影)";
+"FRAME_DIAMOND" = "ダイヤモンドカット (高級感)";
 
 "GLASS_COLOR" = "リキッドガラスのカラー";
 "GLASS_COLOR_FOOTER" = "ホーム画面のピルカプセルのお好みの配色を選択します。";
