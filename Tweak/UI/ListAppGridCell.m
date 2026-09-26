@@ -80,6 +80,12 @@
     if (@available(iOS 13.0, *)) {
         _iconImageView.layer.cornerCurve = kCACornerCurveContinuous;
     }
+    // High-resolution icon rendering settings
+    _iconImageView.layer.magnificationFilter = kCAFilterLinear;
+    _iconImageView.layer.minificationFilter = kCAFilterTrilinear;
+    _iconImageView.layer.contentsScale = [UIScreen mainScreen].scale;
+    _iconImageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    _iconImageView.layer.shouldRasterize = NO;
     [_cardClipView addSubview:_iconImageView];
 
     // 8. App Title (center-left)
@@ -124,11 +130,6 @@
     [_badgeView addSubview:_badgeLabel];
     [_cardClipView addSubview:_badgeView];
 
-    // Direct cell tap gesture recognizer for zero-delay response
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCellTap:)];
-    tap.cancelsTouchesInView = NO;
-    [self.contentView addGestureRecognizer:tap];
-
     [self applyStyle];
     return self;
 }
@@ -143,17 +144,6 @@
         return nil;
     }
     return nil;
-}
-
-- (void)handleCellTap:(UITapGestureRecognizer *)gesture {
-    if (gesture.state == UIGestureRecognizerStateEnded) {
-        CGPoint loc = [gesture locationInView:self.contentView];
-        if (CGRectContainsPoint(_pillContainerView.frame, loc)) {
-            if (self.onTapHandler) {
-                self.onTapHandler();
-            }
-        }
-    }
 }
 
 - (UIBlurEffect *)currentBlurEffect {
@@ -383,6 +373,9 @@
     }
     _cardClipView.layer.cornerRadius = cornerRad;
     _hairlineBorder.cornerRadius = cornerRad;
+
+    // Explicit shadowPath eliminates off-screen dynamic shadow passes during touch animations (solves lag)
+    _pillContainerView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:_pillContainerView.bounds cornerRadius:cornerRad].CGPath;
 
     // 1. App Icon with user-configured size
     CGFloat userIconSize = [ListAppPrefs iconSize];

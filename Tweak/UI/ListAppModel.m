@@ -81,13 +81,12 @@
 - (UIImage *)iconImageWithScale:(CGFloat)scale {
     if (self.cachedIcon) return self.cachedIcon;
 
-    if (scale <= 0.0) {
-        scale = [UIScreen mainScreen].scale;
-    }
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    if (screenScale < 2.0) screenScale = 2.0;
 
     UIImage *icon = nil;
 
-    // 1. First priority: SBIcon from SBIconModel (respects SnowBoard, snowboard themes, dynamic calendar/clock icons)
+    // 1. First priority: SBIcon getIconImage:2 (format 2 is native 60x60 @2x/@3x SpringBoard icon, 120px / 180px)
     @try {
         Class icClass = objc_getClass("SBIconController");
         if (icClass) {
@@ -101,22 +100,19 @@
             }
             if (model && [model respondsToSelector:@selector(applicationIconForBundleIdentifier:)]) {
                 id sbIcon = [model applicationIconForBundleIdentifier:self.bundleIdentifier];
-                if (sbIcon) {
-                    // Format 2 is full springboard icon format (60x60@2x/3x = 120/180px)
-                    if ([sbIcon respondsToSelector:@selector(getIconImage:)]) {
-                        icon = [sbIcon getIconImage:2];
-                    }
+                if (sbIcon && [sbIcon respondsToSelector:@selector(getIconImage:)]) {
+                    icon = [sbIcon getIconImage:2];
                 }
             }
         }
     } @catch (NSException *e) {}
 
-    // 2. Second priority: _applicationIconImageForBundleIdentifier format 2 (high res @2x/@3x = 120/180px)
+    // 2. Second priority: _applicationIconImageForBundleIdentifier format 2 at native screen scale
     if (!icon && [UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
         @try {
-            icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:2 scale:scale];
+            icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:2 scale:screenScale];
             if (!icon) {
-                icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:0 scale:scale];
+                icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:0 scale:screenScale];
             }
         } @catch (NSException *e) {}
     }
@@ -371,7 +367,11 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
                                 testIcon = [icon getIconImage:2];
                             }
                             if (!testIcon && [UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
-                                testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:1.0];
+                                CGFloat screenScale = [UIScreen mainScreen].scale;
+                                testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:2 scale:screenScale];
+                                if (!testIcon) {
+                                    testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:screenScale];
+                                }
                             }
                             if (!testIcon) continue;
 
@@ -417,7 +417,11 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
 
                                 UIImage *testIcon = nil;
                                 if ([UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
-                                    testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:1.0];
+                                    CGFloat screenScale = [UIScreen mainScreen].scale;
+                                    testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:2 scale:screenScale];
+                                    if (!testIcon) {
+                                        testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:screenScale];
+                                    }
                                 }
                                 if (!testIcon) continue;
 
@@ -478,7 +482,11 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
 
                         UIImage *testIcon = nil;
                         if ([UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
-                            testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:1.0];
+                            CGFloat screenScale = [UIScreen mainScreen].scale;
+                            testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:2 scale:screenScale];
+                            if (!testIcon) {
+                                testIcon = [UIImage _applicationIconImageForBundleIdentifier:bid format:0 scale:screenScale];
+                            }
                         }
                         if (!testIcon) continue;
 
@@ -527,15 +535,7 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
     NSString *bundleID = item.bundleIdentifier;
 
     @try {
-        // Method 1: SpringBoard native launchApplicationWithIdentifier:suspended:
-        // Inside SpringBoard, [UIApplication sharedApplication] is the SpringBoard singleton.
-        UIApplication *app = [UIApplication sharedApplication];
-        if ([app respondsToSelector:@selector(launchApplicationWithIdentifier:suspended:)]) {
-            ((void(*)(id, SEL, NSString *, BOOL))objc_msgSend)(app, @selector(launchApplicationWithIdentifier:suspended:), bundleID, NO);
-            return;
-        }
-
-        // Method 2: SBIconController launchIcon:
+        // Method 1: SBIconController launchIcon: (Provides native SpringBoard zoom & springboard transition)
         Class icClass = objc_getClass("SBIconController");
         if (icClass) {
             id iconCtrl = [icClass sharedInstance];
@@ -562,18 +562,7 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
             }
         }
 
-        // Method 3: LSApplicationWorkspace openApplicationWithBundleIdentifier:
-        Class wsClass = objc_getClass("LSApplicationWorkspace");
-        if (wsClass && [wsClass respondsToSelector:@selector(defaultWorkspace)]) {
-            LSApplicationWorkspace *ws = [wsClass defaultWorkspace];
-            if ([ws respondsToSelector:@selector(openApplicationWithBundleIdentifier:)]) {
-                if ([ws openApplicationWithBundleIdentifier:bundleID]) {
-                    return;
-                }
-            }
-        }
-
-        // Method 4: SBApplicationController + SBUIController activateApplication:
+        // Method 2: SBApplicationController + SBUIController activateApplication:
         Class sbAppClass = objc_getClass("SBApplicationController");
         if (sbAppClass) {
             SBApplicationController *appCtrl = [sbAppClass sharedInstance];
@@ -588,6 +577,24 @@ static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selec
                             return;
                         }
                     }
+                }
+            }
+        }
+
+        // Method 3: SpringBoard native launchApplicationWithIdentifier:suspended:
+        UIApplication *app = [UIApplication sharedApplication];
+        if ([app respondsToSelector:@selector(launchApplicationWithIdentifier:suspended:)]) {
+            ((void(*)(id, SEL, NSString *, BOOL))objc_msgSend)(app, @selector(launchApplicationWithIdentifier:suspended:), bundleID, NO);
+            return;
+        }
+
+        // Method 4: LSApplicationWorkspace openApplicationWithBundleIdentifier:
+        Class wsClass = objc_getClass("LSApplicationWorkspace");
+        if (wsClass && [wsClass respondsToSelector:@selector(defaultWorkspace)]) {
+            LSApplicationWorkspace *ws = [wsClass defaultWorkspace];
+            if ([ws respondsToSelector:@selector(openApplicationWithBundleIdentifier:)]) {
+                if ([ws openApplicationWithBundleIdentifier:bundleID]) {
+                    return;
                 }
             }
         }

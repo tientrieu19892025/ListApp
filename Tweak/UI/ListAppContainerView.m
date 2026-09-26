@@ -211,10 +211,6 @@
     if (indexPath.item < _displayedApps.count) {
         ListAppItem *item = _displayedApps[indexPath.item];
         [cell configureWithItem:item];
-        __weak typeof(self) weakSelf = self;
-        cell.onTapHandler = ^{
-            [weakSelf launchItem:item];
-        };
     }
     return cell;
 }
@@ -236,15 +232,21 @@
 
     static NSTimeInterval sLastLaunchTime = 0;
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-    if (now - sLastLaunchTime < 0.35) return;
+    if (now - sLastLaunchTime < 0.40) return;
     sLastLaunchTime = now;
 
     if ([ListAppPrefs haptics]) {
         [_feedbackGen impactOccurred];
     }
 
-    [_searchField resignFirstResponder];
-    [[ListAppModel sharedInstance] launchApp:item];
+    if ([_searchField isFirstResponder]) {
+        [_searchField resignFirstResponder];
+    }
+
+    // Launch on next runloop cycle so touch highlight animation renders smoothly without hitch
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[ListAppModel sharedInstance] launchApp:item];
+    });
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

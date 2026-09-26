@@ -2,6 +2,12 @@
 
 All notable changes to **ListApp** will be documented in this file.
 
+## [1.2.2] - 2026-09-26
+
+### Fixed
+- **HD Ultra-Crisp Icons**: Completely fixed blurry/fuzzy icon display on all Super Retina / ProMotion screens with trilinear minification filtering and native 2x/3x rasterization scale.
+- **Butter-Smooth App Launch**: Eliminated launch lag and frame stutter by explicitly caching GPU `shadowPath`, removing gesture delay conflicts, and prioritizing native SpringBoard icon activation.
+
 ## [1.2.1] - 2026-09-26
 
 ### Fixed
