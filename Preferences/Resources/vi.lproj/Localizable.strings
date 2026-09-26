@@ -18,7 +18,7 @@
 "CANCEL" = "Hủy";
 "OK" = "OK";
 
-"VERSION_FOOTER" = "ListApp 1.1.0 · Phiên bản Crystal · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+"VERSION_FOOTER" = "ListApp 1.2.0 · Phiên bản Crystal · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
 
 "FRAME_DESIGN" = "Thiết kế khung app";
 "FRAME_DESIGN_FOOTER" = "Chọn phong cách hình học bo góc cho các thanh kính lỏng chứa ứng dụng.";
@@ -61,6 +61,19 @@
 "REDUCE_TRANSPARENCY" = "Tôn trọng Giảm độ trong suốt";
 "CHEAP_LPM" = "Tiết kiệm pin khi bật Chế độ nguồn điện thấp";
 "SAFETY_FOOTER" = "Cơ chế cầu dao tự động cách ly lỗi nếu phát sinh, không gây treo máy, văng SpringBoard hay Safe Mode. Khi bật Tiết kiệm pin, hiệu ứng kính sẽ chuyển sang chế độ siêu nhẹ.";
+
+"GRID_COLUMNS_LABEL" = "Kiểu danh sách";
+"GRID_COLUMNS_FOOTER" = "Chế độ mặc định là danh sách thanh dài 1 cột.";
+"CARD_HEIGHT_LABEL" = "Chiều cao thanh kính";
+"CARD_HEIGHT_FOOTER" = "Tỉ lệ chiều cao của thanh kính trên màn hình.";
+"ICON_SIZE_LABEL" = "Kích thước biểu tượng ứng dụng";
+
+"BADGES_GROUP" = "Số lượng thông báo ứng dụng (Badges)";
+"BADGES_FOOTER" = "Hiển thị số lượng thông báo chưa đọc của app trực tiếp trong khung. Có thể chọn vị trí hiển thị ở giữa khung hoặc bên phải.";
+"SHOW_BADGES" = "Hiện số thông báo (Badge)";
+"BADGE_POSITION" = "Vị trí số thông báo trong khung";
+"BADGE_POS_RIGHT" = "Bên phải khung";
+"BADGE_POS_CENTER" = "Ở giữa khung";
 
 "COMPONENTS" = "Thay thế Màn hình chính";
 "COMPONENTS_FOOTER" = "ListApp hiển thị từng ứng dụng trong một khung kính dài nổi 2/3 màn hình. Thanh tìm kiếm cho phép lọc ứng dụng tức thì.";

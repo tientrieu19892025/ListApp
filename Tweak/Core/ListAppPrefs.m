@@ -52,7 +52,8 @@ static void ReloadPrefsCallback(CFNotificationCenterRef center, void *observer, 
         kListAppHideStockIcons, kListAppHideDock, kListAppHidePageDots,
         kListAppHaptics, kListAppIconSize, kListAppCrashProtection,
         kListAppRespectReduceTransparency, kListAppRespectReduceMotion,
-        kListAppCheapBlurOnLPM, kListAppFrameDesign, kListAppGlassColor
+        kListAppCheapBlurOnLPM, kListAppFrameDesign, kListAppGlassColor,
+        kListAppShowBadges, kListAppBadgePosition
     ];
 
     for (NSString *key in keys) {
@@ -167,6 +168,14 @@ static void ReloadPrefsCallback(CFNotificationCenterRef center, void *observer, 
 
 + (NSInteger)glassColor {
     return [[self objectForKey:kListAppGlassColor defaultVal:@(ListAppGlassColorCrystal)] integerValue];
+}
+
++ (BOOL)showBadges {
+    return [[self objectForKey:kListAppShowBadges defaultVal:@YES] boolValue];
+}
+
++ (NSInteger)badgePosition {
+    return [[self objectForKey:kListAppBadgePosition defaultVal:@(ListAppBadgePositionRight)] integerValue];
 }
 
 @end

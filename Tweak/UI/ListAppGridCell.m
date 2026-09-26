@@ -13,6 +13,9 @@
     UIImageView *_iconImageView;
     UILabel *_titleLabel;
     UIImageView *_chevronImageView;
+    UIView *_badgeView;
+    UILabel *_badgeLabel;
+    ListAppItem *_currentItem;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -102,6 +105,24 @@
         _chevronImageView.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.45];
     }
     [_cardClipView addSubview:_chevronImageView];
+
+    // 10. Notification Badge (pill with vibrant red background)
+    _badgeView = [[UIView alloc] initWithFrame:CGRectZero];
+    _badgeView.backgroundColor = [UIColor colorWithRed:1.0 green:0.23 blue:0.19 alpha:0.95]; // iOS system red
+    _badgeView.clipsToBounds = YES;
+    _badgeView.userInteractionEnabled = NO;
+    _badgeView.layer.cornerRadius = 10.0;
+    _badgeView.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
+    _badgeView.layer.borderWidth = 1.0;
+    _badgeView.hidden = YES;
+
+    _badgeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _badgeLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightBold];
+    _badgeLabel.textColor = [UIColor whiteColor];
+    _badgeLabel.textAlignment = NSTextAlignmentCenter;
+    _badgeLabel.userInteractionEnabled = NO;
+    [_badgeView addSubview:_badgeLabel];
+    [_cardClipView addSubview:_badgeView];
 
     // Direct cell tap gesture recognizer for zero-delay response
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCellTap:)];
@@ -281,9 +302,24 @@
 }
 
 - (void)configureWithItem:(ListAppItem *)item {
+    _currentItem = item;
     _titleLabel.text = item.displayName ?: @"";
     CGFloat scale = [UIScreen mainScreen].scale;
     _iconImageView.image = [item iconImageWithScale:scale];
+
+    // Configure Badge
+    if ([ListAppPrefs showBadges]) {
+        NSString *bStr = [item badgeString];
+        if (bStr.length > 0) {
+            _badgeLabel.text = bStr;
+            _badgeView.hidden = NO;
+        } else {
+            _badgeView.hidden = YES;
+        }
+    } else {
+        _badgeView.hidden = YES;
+    }
+
     [self applyStyle];
     [self setNeedsLayout];
 }
@@ -348,24 +384,67 @@
     _cardClipView.layer.cornerRadius = cornerRad;
     _hairlineBorder.cornerRadius = cornerRad;
 
-    // Icon on left
-    CGFloat iconSz = 42.0;
+    // 1. App Icon with user-configured size
+    CGFloat userIconSize = [ListAppPrefs iconSize];
+    CGFloat maxIconSz = pillHeight - 8.0;
+    CGFloat iconSz = MIN(userIconSize, maxIconSz);
+    if (iconSz < 24.0) iconSz = 42.0;
+
     CGFloat iconY = floor((pillHeight - iconSz) / 2.0);
     _iconImageView.frame = CGRectMake(12.0, iconY, iconSz, iconSz);
+    CGFloat iconCorner = MAX(6.0, iconSz * 0.23);
+    _iconImageView.layer.cornerRadius = iconCorner;
 
-    // Chevron on right
+    // 2. Chevron on right
     CGFloat chevW = 12.0;
     CGFloat chevH = 16.0;
     CGFloat chevX = pillWidth - chevW - 14.0;
     CGFloat chevY = floor((pillHeight - chevH) / 2.0);
     _chevronImageView.frame = CGRectMake(chevX, chevY, chevW, chevH);
 
-    // Title in middle
-    CGFloat titleX = CGRectGetMaxX(_iconImageView.frame) + 14.0;
-    CGFloat titleW = chevX - titleX - 8.0;
-    CGFloat titleH = 24.0;
-    CGFloat titleY = floor((pillHeight - titleH) / 2.0);
-    _titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
+    // 3. Notification Badge layout
+    CGFloat badgeH = 20.0;
+    CGFloat badgeW = 20.0;
+    if (!_badgeView.hidden && _badgeLabel.text.length > 0) {
+        CGSize textSz = [_badgeLabel sizeThatFits:CGSizeMake(80, badgeH)];
+        badgeW = MAX(20.0, textSz.width + 10.0);
+        _badgeView.layer.cornerRadius = badgeH / 2.0;
+        _badgeLabel.frame = CGRectMake(0, 0, badgeW, badgeH);
+    }
+
+    NSInteger badgePos = [ListAppPrefs badgePosition]; // 0: Right, 1: Center
+    CGFloat titleX = CGRectGetMaxX(_iconImageView.frame) + 12.0;
+
+    if (!_badgeView.hidden) {
+        if (badgePos == ListAppBadgePositionRight) {
+            // Right inside frame, right before chevron
+            CGFloat badgeX = chevX - badgeW - 8.0;
+            CGFloat badgeY = floor((pillHeight - badgeH) / 2.0);
+            _badgeView.frame = CGRectMake(badgeX, badgeY, badgeW, badgeH);
+
+            CGFloat titleW = badgeX - titleX - 8.0;
+            CGFloat titleH = 24.0;
+            CGFloat titleY = floor((pillHeight - titleH) / 2.0);
+            _titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
+        } else {
+            // Center inside frame, right next to title
+            CGSize titleFit = [_titleLabel sizeThatFits:CGSizeMake(pillWidth - 100, 24.0)];
+            CGFloat maxTitleW = (pillWidth / 2.0) - titleX + 20.0;
+            CGFloat titleW = MIN(titleFit.width, maxTitleW);
+            CGFloat titleH = 24.0;
+            CGFloat titleY = floor((pillHeight - titleH) / 2.0);
+            _titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
+
+            CGFloat badgeX = CGRectGetMaxX(_titleLabel.frame) + 8.0;
+            CGFloat badgeY = floor((pillHeight - badgeH) / 2.0);
+            _badgeView.frame = CGRectMake(badgeX, badgeY, badgeW, badgeH);
+        }
+    } else {
+        CGFloat titleW = chevX - titleX - 8.0;
+        CGFloat titleH = 24.0;
+        CGFloat titleY = floor((pillHeight - titleH) / 2.0);
+        _titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
+    }
 }
 
 - (void)setHighlighted:(BOOL)highlighted {

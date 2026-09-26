@@ -62,6 +62,19 @@
 "CHEAP_LPM" = "低電力モードで軽量ブラー";
 "SAFETY_FOOTER" = "異常が発生した場合に機能を自動的に分離し、セーフモードを防ぎます。";
 
+"GRID_COLUMNS_LABEL" = "レイアウト形式";
+"GRID_COLUMNS_FOOTER" = "デフォルトは1列の細長いピルリストです。";
+"CARD_HEIGHT_LABEL" = "カードの高さ比率";
+"CARD_HEIGHT_FOOTER" = "画面に対する各カードの高さの割合です。";
+"ICON_SIZE_LABEL" = "アプリアイコンのサイズ";
+
+"BADGES_GROUP" = "通知バッジ数";
+"BADGES_FOOTER" = "枠内に未読通知件数バッジを表示します。中央または右側を選択できます。";
+"SHOW_BADGES" = "通知バッジを表示";
+"BADGE_POSITION" = "バッジの表示位置";
+"BADGE_POS_RIGHT" = "右側";
+"BADGE_POS_CENTER" = "中央";
+
 "COMPONENTS" = "ホーム画面置き換え";
 "COMPONENTS_FOOTER" = "各アプリを2/3幅のガラスカプセルで表示します。";
 "SHOW_SEARCH" = "上部に検索バーを表示";

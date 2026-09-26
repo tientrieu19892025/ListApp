@@ -2,6 +2,20 @@
 
 All notable changes to **ListApp** will be documented in this file.
 
+## [1.2.0] - 2026-09-26
+
+### Added
+- **Notification Badges Inside Frame**: Displays unread notification count badge in each app card.
+- **Customizable Badge Placement**: Users can configure the badge position:
+  - **Right**: Right inside the frame, adjacent to chevron.
+  - **Center**: Centered inside the frame, right next to the app title.
+- **Dynamic Row & Icon Sizing**: App row height dynamically adjusts when changing icon size slider.
+
+### Fixed
+- **HD Crisp Icons**: Fixed blurry icons on modern retina and Super Retina displays by reading native SpringBoard format 2 assets.
+- **SnowBoard & Custom Theme Support**: Now renders theme icons and dynamic calendar/clock icons properly.
+- **Icon Size Persistence**: Fixed preference slider not applying on some devices by ensuring proper `PostNotification` and layout invalidation.
+
 ## [1.1.0] - 2026-09-26
 
 ### Fixed

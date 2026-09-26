@@ -81,36 +81,51 @@
 - (UIImage *)iconImageWithScale:(CGFloat)scale {
     if (self.cachedIcon) return self.cachedIcon;
 
+    if (scale <= 0.0) {
+        scale = [UIScreen mainScreen].scale;
+    }
+
     UIImage *icon = nil;
-    if ([UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
+
+    // 1. First priority: SBIcon from SBIconModel (respects SnowBoard, snowboard themes, dynamic calendar/clock icons)
+    @try {
+        Class icClass = objc_getClass("SBIconController");
+        if (icClass) {
+            id iconCtrl = [icClass sharedInstance];
+            id model = [iconCtrl respondsToSelector:@selector(model)] ? [iconCtrl model] : nil;
+            if (!model && [iconCtrl respondsToSelector:@selector(iconManager)]) {
+                id mgr = [iconCtrl iconManager];
+                if ([mgr respondsToSelector:@selector(iconModel)]) {
+                    model = [mgr iconModel];
+                }
+            }
+            if (model && [model respondsToSelector:@selector(applicationIconForBundleIdentifier:)]) {
+                id sbIcon = [model applicationIconForBundleIdentifier:self.bundleIdentifier];
+                if (sbIcon) {
+                    // Format 2 is full springboard icon format (60x60@2x/3x = 120/180px)
+                    if ([sbIcon respondsToSelector:@selector(getIconImage:)]) {
+                        icon = [sbIcon getIconImage:2];
+                    }
+                    if (!icon && [sbIcon respondsToSelector:@selector(iconImageWithInfo:)]) {
+                        // Some modern iOS versions
+                        typedef struct { CGFloat width; CGFloat height; CGFloat scale; BOOL continuousCornerRadius; } SBIconImageInfo;
+                        SBIconImageInfo info = { 60.0, 60.0, scale, YES };
+                        icon = ((UIImage *(*)(id, SEL, SBIconImageInfo))objc_msgSend)(sbIcon, @selector(iconImageWithInfo:), info);
+                    }
+                }
+            }
+        }
+    } @catch (NSException *e) {}
+
+    // 2. Second priority: _applicationIconImageForBundleIdentifier format 2 (high res @2x/@3x)
+    if (!icon && [UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
         icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:2 scale:scale];
         if (!icon) {
             icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:0 scale:scale];
         }
     }
 
-    if (!icon) {
-        @try {
-            Class icClass = objc_getClass("SBIconController");
-            if (icClass) {
-                id iconCtrl = [icClass sharedInstance];
-                id model = [iconCtrl respondsToSelector:@selector(model)] ? [iconCtrl model] : nil;
-                if (!model && [iconCtrl respondsToSelector:@selector(iconManager)]) {
-                    id mgr = [iconCtrl iconManager];
-                    if ([mgr respondsToSelector:@selector(iconModel)]) {
-                        model = [mgr iconModel];
-                    }
-                }
-                if (model && [model respondsToSelector:@selector(applicationIconForBundleIdentifier:)]) {
-                    id sbIcon = [model applicationIconForBundleIdentifier:self.bundleIdentifier];
-                    if (sbIcon && [sbIcon respondsToSelector:@selector(getIconImage:)]) {
-                        icon = [sbIcon getIconImage:2];
-                    }
-                }
-            }
-        } @catch (NSException *e) {}
-    }
-
+    // 3. Fallback: app.fill system image
     if (!icon) {
         if (@available(iOS 13.0, *)) {
             icon = [UIImage systemImageNamed:@"app.fill"];
@@ -119,6 +134,69 @@
 
     self.cachedIcon = icon;
     return icon;
+}
+
+- (id)sbIconObject {
+    @try {
+        Class icClass = objc_getClass("SBIconController");
+        if (icClass) {
+            id iconCtrl = [icClass sharedInstance];
+            id model = [iconCtrl respondsToSelector:@selector(model)] ? [iconCtrl model] : nil;
+            if (!model && [iconCtrl respondsToSelector:@selector(iconManager)]) {
+                id mgr = [iconCtrl iconManager];
+                if ([mgr respondsToSelector:@selector(iconModel)]) {
+                    model = [mgr iconModel];
+                }
+            }
+            if (model && [model respondsToSelector:@selector(applicationIconForBundleIdentifier:)]) {
+                return [model applicationIconForBundleIdentifier:self.bundleIdentifier];
+            }
+        }
+    } @catch (NSException *e) {}
+    return nil;
+}
+
+- (NSInteger)badgeCount {
+    @try {
+        id sbIcon = [self sbIconObject];
+        if (sbIcon) {
+            if ([sbIcon respondsToSelector:@selector(badgeValue)]) {
+                id val = [sbIcon performSelector:@selector(badgeValue)];
+                if ([val respondsToSelector:@selector(integerValue)]) {
+                    return [val integerValue];
+                }
+            }
+            if ([sbIcon respondsToSelector:@selector(badgeNumberOrString)]) {
+                id val = [sbIcon performSelector:@selector(badgeNumberOrString)];
+                if ([val respondsToSelector:@selector(integerValue)]) {
+                    return [val integerValue];
+                }
+            }
+        }
+
+        // Secondary check via SBApplication
+        Class appCtrlClass = objc_getClass("SBApplicationController");
+        if (appCtrlClass) {
+            id appCtrl = [appCtrlClass sharedInstance];
+            if ([appCtrl respondsToSelector:@selector(applicationWithBundleIdentifier:)]) {
+                id sbApp = [appCtrl applicationWithBundleIdentifier:self.bundleIdentifier];
+                if (sbApp && [sbApp respondsToSelector:@selector(badgeValue)]) {
+                    id val = [sbApp performSelector:@selector(badgeValue)];
+                    if ([val respondsToSelector:@selector(integerValue)]) {
+                        return [val integerValue];
+                    }
+                }
+            }
+        }
+    } @catch (NSException *e) {}
+    return 0;
+}
+
+- (NSString *)badgeString {
+    NSInteger count = [self badgeCount];
+    if (count <= 0) return nil;
+    if (count > 99) return @"99+";
+    return [NSString stringWithFormat:@"%ld", (long)count];
 }
 
 @end

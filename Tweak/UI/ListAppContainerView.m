@@ -126,6 +126,8 @@
     BOOL showSearch = [ListAppPrefs showSearchBar];
     _searchPillView.hidden = !showSearch;
 
+    [[ListAppModel sharedInstance] clearIconCache];
+    [_flowLayout invalidateLayout];
     [self setNeedsLayout];
     [self layoutIfNeeded];
     [_collectionView reloadData];
@@ -224,7 +226,9 @@
     if (totalW <= 50.0) {
         totalW = [UIScreen mainScreen].bounds.size.width;
     }
-    return CGSizeMake(totalW, 64.0);
+    CGFloat iconSz = [ListAppPrefs iconSize];
+    CGFloat cellHeight = MAX(64.0, iconSz + 16.0);
+    return CGSizeMake(totalW, cellHeight);
 }
 
 - (void)launchItem:(ListAppItem *)item {

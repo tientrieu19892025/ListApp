@@ -26,5 +26,7 @@
 + (BOOL)cheapBlurOnLPM;
 + (NSInteger)frameDesign;
 + (NSInteger)glassColor;
++ (BOOL)showBadges;
++ (NSInteger)badgePosition;
 
 @end

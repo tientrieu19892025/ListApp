@@ -29,8 +29,14 @@ static NSString * const kListAppCrashProtection = @"CrashProtection";
 static NSString * const kListAppRespectReduceTransparency = @"RespectReduceTransparency";
 static NSString * const kListAppRespectReduceMotion = @"RespectReduceMotion";
 static NSString * const kListAppCheapBlurOnLPM = @"CheapBlurOnLPM";
+static NSString * const kListAppShowBadges = @"ShowBadges";
+static NSString * const kListAppBadgePosition = @"BadgePosition";
 
-// Frame designs
+// Badge positions
+typedef NS_ENUM(NSInteger, ListAppBadgePosition) {
+    ListAppBadgePositionRight = 0,   // Bên phải trong khung (cạnh chevron)
+    ListAppBadgePositionCenter = 1   // Ở giữa khung (sau tên ứng dụng)
+};
 typedef NS_ENUM(NSInteger, ListAppFrameDesign) {
     ListAppFrameDesignCapsule = 0,        // Bo tròn viên thuốc mượt mà (Full Pill)
     ListAppFrameDesignRounded = 1,        // Hình chữ nhật bo nhẹ 12pt (Rounded 12pt)
@@ -67,7 +73,7 @@ static const CGFloat kListAppDefaultIntensity = 0.38;
 static const CGFloat kListAppDefaultIconSize = 42.0;
 static const NSInteger kListAppFailureDisableThreshold = 15;
 
-static NSString * const kListAppVersion = @"1.1.0";
+static NSString * const kListAppVersion = @"1.2.0";
 static NSString * const kListAppCodename = @"Crystal";
 
 #endif

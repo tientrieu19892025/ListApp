@@ -62,6 +62,19 @@
 "CHEAP_LPM" = "低电量模式使用节能模糊";
 "SAFETY_FOOTER" = "自动断路器隔离任何异常，防止SpringBoard陷入注销死循环或安全模式。";
 
+"GRID_COLUMNS_LABEL" = "布局样式";
+"GRID_COLUMNS_FOOTER" = "默认模式为单列细长药丸卡片。";
+"CARD_HEIGHT_LABEL" = "卡片高度比例";
+"CARD_HEIGHT_FOOTER" = "卡片占屏幕高度的比例。";
+"ICON_SIZE_LABEL" = "应用图标尺寸";
+
+"BADGES_GROUP" = "应用通知角标";
+"BADGES_FOOTER" = "在卡片内显示未读通知数量。可选择居中显示或靠右显示。";
+"SHOW_BADGES" = "显示未读通知角标";
+"BADGE_POSITION" = "角标显示位置";
+"BADGE_POS_RIGHT" = "卡片右侧";
+"BADGE_POS_CENTER" = "卡片居中";
+
 "COMPONENTS" = "主屏幕替换";
 "COMPONENTS_FOOTER" = "ListApp 将每个应用显示在占屏幕2/3宽度的玻璃药丸卡片中。";
 "SHOW_SEARCH" = "顶部搜索栏";

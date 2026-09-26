@@ -18,7 +18,7 @@
 "CANCEL" = "Cancel";
 "OK" = "OK";
 
-"VERSION_FOOTER" = "ListApp 1.1.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
+"VERSION_FOOTER" = "ListApp 1.2.0 · Crystal Edition · Jin Ken Nguyen\nRootful · Rootless · RootHide · iOS 15–27";
 
 "FRAME_DESIGN" = "Pill Frame Design";
 "FRAME_DESIGN_FOOTER" = "Select the geometric design for the liquid glass app capsules.";
@@ -61,6 +61,19 @@
 "REDUCE_TRANSPARENCY" = "Respect Reduce Transparency";
 "CHEAP_LPM" = "Power Saver Blur in Low Power Mode";
 "SAFETY_FOOTER" = "Automatic circuit breaker isolates any rare exception and prevents SpringBoard loops or safe mode. Low Power Mode switches to lightweight rendering.";
+
+"GRID_COLUMNS_LABEL" = "Layout Style";
+"GRID_COLUMNS_FOOTER" = "Default mode is 1-column elongated pill list.";
+"CARD_HEIGHT_LABEL" = "Pill Height Ratio";
+"CARD_HEIGHT_FOOTER" = "Relative height proportion of each card.";
+"ICON_SIZE_LABEL" = "App Icon Size";
+
+"BADGES_GROUP" = "Notification Badges";
+"BADGES_FOOTER" = "Show unread notification count badge inside each app card. Choose whether badge appears in the center or on the right side.";
+"SHOW_BADGES" = "Show Notification Badges";
+"BADGE_POSITION" = "Badge Placement";
+"BADGE_POS_RIGHT" = "Right Side";
+"BADGE_POS_CENTER" = "Center";
 
 "COMPONENTS" = "Home Screen Replacement";
 "COMPONENTS_FOOTER" = "ListApp displays each application in an elongated 2/3 width floating pill card. Search bar lets you filter applications instantly.";

@@ -8,6 +8,8 @@
 @property (nonatomic, strong) UIImage *cachedIcon;
 
 - (UIImage *)iconImageWithScale:(CGFloat)scale;
+- (NSInteger)badgeCount;
+- (NSString *)badgeString;
 
 @end
 

@@ -70,17 +70,66 @@
 			<key>cell</key>
 			<string>PSSliderCell</string>
 			<key>default</key>
-			<real>56.0</real>
+			<real>42.0</real>
 			<key>defaults</key>
 			<string>com.jinken.listapp</string>
 			<key>key</key>
 			<string>IconSize</string>
 			<key>min</key>
-			<real>44.0</real>
+			<real>32.0</real>
 			<key>max</key>
-			<real>72.0</real>
+			<real>60.0</real>
 			<key>showValue</key>
 			<true/>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>BADGES_GROUP</string>
+			<key>footerText</key>
+			<string>BADGES_FOOTER</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.jinken.listapp</string>
+			<key>key</key>
+			<string>ShowBadges</string>
+			<key>label</key>
+			<string>SHOW_BADGES</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.jinken.listapp</string>
+			<key>key</key>
+			<string>BadgePosition</string>
+			<key>label</key>
+			<string>BADGE_POSITION</string>
+			<key>validTitles</key>
+			<array>
+				<string>BADGE_POS_RIGHT</string>
+				<string>BADGE_POS_CENTER</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 
 		<dict>
@@ -102,6 +151,8 @@
 			<string>ShowSearchBar</string>
 			<key>label</key>
 			<string>SHOW_SEARCH</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -114,6 +165,8 @@
 			<string>HideStockIcons</string>
 			<key>label</key>
 			<string>HIDE_STOCK_ICONS</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -126,6 +179,8 @@
 			<string>HideDock</string>
 			<key>label</key>
 			<string>HIDE_DOCK</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -138,6 +193,8 @@
 			<string>HidePageDots</string>
 			<key>label</key>
 			<string>HIDE_PAGE_DOTS</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -150,6 +207,8 @@
 			<string>Haptics</string>
 			<key>label</key>
 			<string>HAPTICS</string>
+			<key>PostNotification</key>
+			<string>com.jinken.listapp/ReloadPrefs</string>
 		</dict>
 	</array>
 	<key>title</key>
