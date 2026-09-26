@@ -2,6 +2,12 @@
 
 All notable changes to **ListApp** will be documented in this file.
 
+## [1.2.1] - 2026-09-26
+
+### Fixed
+- **Safe Mode Crash Fix**: Resolved a critical SpringBoard crash (Safe Mode) caused by unsafe icon image struct dispatch and badge value integer primitive dereference.
+- **Enhanced Badge Extraction**: Safe type-introspection for SpringBoard icon and application badge counts.
+
 ## [1.2.0] - 2026-09-26
 
 ### Added

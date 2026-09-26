@@ -106,23 +106,19 @@
                     if ([sbIcon respondsToSelector:@selector(getIconImage:)]) {
                         icon = [sbIcon getIconImage:2];
                     }
-                    if (!icon && [sbIcon respondsToSelector:@selector(iconImageWithInfo:)]) {
-                        // Some modern iOS versions
-                        typedef struct { CGFloat width; CGFloat height; CGFloat scale; BOOL continuousCornerRadius; } SBIconImageInfo;
-                        SBIconImageInfo info = { 60.0, 60.0, scale, YES };
-                        icon = ((UIImage *(*)(id, SEL, SBIconImageInfo))objc_msgSend)(sbIcon, @selector(iconImageWithInfo:), info);
-                    }
                 }
             }
         }
     } @catch (NSException *e) {}
 
-    // 2. Second priority: _applicationIconImageForBundleIdentifier format 2 (high res @2x/@3x)
+    // 2. Second priority: _applicationIconImageForBundleIdentifier format 2 (high res @2x/@3x = 120/180px)
     if (!icon && [UIImage respondsToSelector:@selector(_applicationIconImageForBundleIdentifier:format:scale:)]) {
-        icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:2 scale:scale];
-        if (!icon) {
-            icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:0 scale:scale];
-        }
+        @try {
+            icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:2 scale:scale];
+            if (!icon) {
+                icon = [UIImage _applicationIconImageForBundleIdentifier:self.bundleIdentifier format:0 scale:scale];
+            }
+        } @catch (NSException *e) {}
     }
 
     // 3. Fallback: app.fill system image
@@ -156,22 +152,45 @@
     return nil;
 }
 
+static NSInteger ListAppExtractIntegerFromTargetAndSelector(id target, SEL selector) {
+    if (!target || !selector || ![target respondsToSelector:selector]) return 0;
+    @try {
+        NSMethodSignature *sig = [target methodSignatureForSelector:selector];
+        if (!sig) return 0;
+        const char *returnType = [sig methodReturnType];
+        if (!returnType) return 0;
+
+        // If return type is an Objective-C object (@)
+        if (returnType[0] == '@') {
+            id obj = ((id (*)(id, SEL))objc_msgSend)(target, selector);
+            if ([obj respondsToSelector:@selector(integerValue)]) {
+                return [obj integerValue];
+            }
+            return 0;
+        }
+
+        // If return type is an integer type (q = long long/NSInteger on 64-bit, i = int, l = long, Q = unsigned long long, I = unsigned int)
+        if (returnType[0] == 'q' || returnType[0] == 'l' || returnType[0] == 'Q') {
+            NSInteger val = ((NSInteger (*)(id, SEL))objc_msgSend)(target, selector);
+            return val;
+        }
+        if (returnType[0] == 'i' || returnType[0] == 'I' || returnType[0] == 's' || returnType[0] == 'S') {
+            int val = ((int (*)(id, SEL))objc_msgSend)(target, selector);
+            return (NSInteger)val;
+        }
+    } @catch (NSException *e) {}
+    return 0;
+}
+
 - (NSInteger)badgeCount {
     @try {
         id sbIcon = [self sbIconObject];
         if (sbIcon) {
-            if ([sbIcon respondsToSelector:@selector(badgeValue)]) {
-                id val = [sbIcon performSelector:@selector(badgeValue)];
-                if ([val respondsToSelector:@selector(integerValue)]) {
-                    return [val integerValue];
-                }
-            }
-            if ([sbIcon respondsToSelector:@selector(badgeNumberOrString)]) {
-                id val = [sbIcon performSelector:@selector(badgeNumberOrString)];
-                if ([val respondsToSelector:@selector(integerValue)]) {
-                    return [val integerValue];
-                }
-            }
+            NSInteger count = ListAppExtractIntegerFromTargetAndSelector(sbIcon, @selector(badgeValue));
+            if (count > 0) return count;
+
+            count = ListAppExtractIntegerFromTargetAndSelector(sbIcon, @selector(badgeNumberOrString));
+            if (count > 0) return count;
         }
 
         // Secondary check via SBApplication
@@ -180,11 +199,9 @@
             id appCtrl = [appCtrlClass sharedInstance];
             if ([appCtrl respondsToSelector:@selector(applicationWithBundleIdentifier:)]) {
                 id sbApp = [appCtrl applicationWithBundleIdentifier:self.bundleIdentifier];
-                if (sbApp && [sbApp respondsToSelector:@selector(badgeValue)]) {
-                    id val = [sbApp performSelector:@selector(badgeValue)];
-                    if ([val respondsToSelector:@selector(integerValue)]) {
-                        return [val integerValue];
-                    }
+                if (sbApp) {
+                    NSInteger count = ListAppExtractIntegerFromTargetAndSelector(sbApp, @selector(badgeValue));
+                    if (count > 0) return count;
                 }
             }
         }
