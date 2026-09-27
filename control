@@ -1,6 +1,6 @@
 Package: com.jinken.listapp
 Name: ListApp
-Version: 1.2.2
+Version: 1.2.3
 Architecture: iphoneos-arm
 Description: Modern Liquid Glass App Launcher on iOS Home Screen. Thay thế hoàn toàn màn hình chính bằng danh sách ứng dụng kính lỏng 2/3 màn hình, hiện số lượng thông báo badge trong khung (giữa hoặc phải), tối ưu icon độ nét cao sắc nét, hỗ trợ chỉnh kích thước icon, 9 phong cách thiết kế khung độc đáo. English & Vietnamese.
 Maintainer: Jin Ken Nguyen <jinkennguyen@users.noreply.github.com>

@@ -134,13 +134,10 @@ static void AttachListAppToRoot(SBRootFolderView *root) {
 }
 %end
 
-// Refresh app list when Home Screen controller appears upon unlock
+// Do NOT trigger full reload on every viewWillAppear (when closing apps) to keep transitions 120 FPS buttery smooth
 %hook SBIconController
 - (void)viewWillAppear:(BOOL)animated {
     %orig;
-    if ([ListAppPrefs enabled]) {
-        [[ListAppContainerView sharedView] reloadApps];
-    }
 }
 %end
 

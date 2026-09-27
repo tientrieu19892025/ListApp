@@ -73,7 +73,7 @@ static const CGFloat kListAppDefaultIntensity = 0.38;
 static const CGFloat kListAppDefaultIconSize = 42.0;
 static const NSInteger kListAppFailureDisableThreshold = 15;
 
-static NSString * const kListAppVersion = @"1.2.2";
+static NSString * const kListAppVersion = @"1.2.3";
 static NSString * const kListAppCodename = @"Crystal";
 
 #endif

@@ -2,6 +2,12 @@
 
 All notable changes to **ListApp** will be documented in this file.
 
+## [1.2.3] - 2026-09-27
+
+### Fixed
+- **120 FPS Buttery-Smooth Open & Close Animations**: Eliminated home screen hitching and animation stutter when exiting/closing apps by decoupling repetitive app list reloading during SpringBoard transition cycles.
+- **Instant Launch Responsiveness**: Optimized runloop execution to guarantee perfectly fluid icon zoom-in and zoom-out transitions without frame drops.
+
 ## [1.2.2] - 2026-09-26
 
 ### Fixed
